@@ -2,18 +2,22 @@
   max-width: 882px;
   color: #ffffff;
   padding: 40px 200px 0;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-areas: "image text button";
+  grid-template-columns: auto auto auto;
 }
 
 .profile__image {
+  grid-area: image;
   border-radius: 50%;
   max-width: 120px;
   max-height: 120px;
 }
 
 .profile__info {
+  grid-area: text;
   max-width: 414px;
+  align-content: center;
 }
 
 .profile__name {
@@ -34,7 +38,9 @@
 }
 
 .profile__add-button {
+  grid-area: button;
   max-width: 150px;
   max-height: 50px;
-  flex-grow: 1;
+  align-self: center;
+  justify-self: end;
 }
