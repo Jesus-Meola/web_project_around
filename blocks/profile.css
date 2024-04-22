@@ -28,6 +28,11 @@
 }
 
 .profile__edit-button {
+  cursor: pointer;
+}
+
+.profile__edit-button:hover {
+  opacity: 50%;
 }
 
 .profile__profession {
