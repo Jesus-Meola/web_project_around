@@ -1,6 +1,7 @@
 .header {
   max-width: 882px;
-  padding: 45px 200px 0px;
+  padding: 45px 0 40px;
+  margin: 0 auto;
 }
 
 .header__logo {

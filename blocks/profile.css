@@ -1,7 +1,7 @@
 .profile {
   max-width: 882px;
   color: #ffffff;
-  padding: 40px 200px 0;
+  margin: 0 auto;
   display: grid;
   grid-template-areas: "image text button";
   grid-template-columns: auto auto auto;
@@ -48,4 +48,9 @@
   max-height: 50px;
   align-self: center;
   justify-self: end;
+  cursor: pointer;
+}
+
+.profile__add-button:hover {
+  opacity: 50%;
 }

@@ -1,0 +1,63 @@
+.elements {
+  max-width: 882px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.elements__content {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+  gap: 18px;
+}
+
+.elements__card {
+  max-width: 282px;
+  position: relative;
+}
+
+.elements__image {
+  max-height: 282px;
+  width: 100%;
+  height: 100%;
+}
+
+.elements__image-trash {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.elements__image-trash:hover {
+  opacity: 50%;
+}
+
+.elements__text {
+  display: flex;
+  justify-content: space-around;
+  background-color: #ffffff;
+  max-height: 79px;
+}
+
+.elements__title {
+  font-size: 24px;
+  line-height: 29.05px;
+  font-weight: 900;
+  background-color: #ffffff;
+  height: 79px;
+  margin: 0;
+  align-content: center;
+}
+
+.elements__image-like {
+  cursor: pointer;
+  align-self: center;
+  max-height: 19px;
+}
+
+.elements__image-like:hover {
+  background-image: url(../images/Union.png);
+}
