@@ -8,18 +8,21 @@
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(3, 1fr);
   gap: 18px;
+  list-style-type: none;
 }
 
 .elements__card {
   max-width: 282px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .elements__image {
-  max-height: 282px;
   width: 100%;
   height: 100%;
 }
@@ -55,9 +58,8 @@
 .elements__image-like {
   cursor: pointer;
   align-self: center;
-  max-height: 19px;
 }
 
 .elements__image-like:hover {
-  background-image: url(../images/Union.png);
+  opacity: 50%;
 }
