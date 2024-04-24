@@ -4,5 +4,5 @@ const miPopup = document.querySelector(".popup");
 editButton.addEventListener("click", openPopup);
 
 function openPopup() {
-  miPopup.style.display = "flex";
+  miPopup.classList.add("popup_open");
 }
