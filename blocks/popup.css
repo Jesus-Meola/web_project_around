@@ -1,27 +1,28 @@
 .popup {
-  /* display: none; */
+  display: none;
   background-color: #ffffff;
-  width: 430px;
   border-radius: 10px;
   position: absolute;
   top: 160px;
   left: 375px;
 }
 
+.popup__form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 430px;
+}
+
 .popup__button-closed {
-  top: -40px;
-  right: -40px;
+  top: -35px;
+  right: -35px;
   cursor: pointer;
   position: absolute;
 }
 
 .popup__button-closed:hover {
   opacity: 50%;
-}
-
-.popup__form {
-  display: flex;
-  flex-direction: column;
 }
 
 .popup__header {

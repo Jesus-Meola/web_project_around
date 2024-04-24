@@ -1,8 +1,8 @@
 const editButton = document.querySelector(".profile__edit-button");
-console.log(editButton);
+const miPopup = document.querySelector(".popup");
 
-editButton.addEventListener("click", hacerClick);
+editButton.addEventListener("click", openPopup);
 
-function hacerClick() {
-  console.log("Hacer Click");
+function openPopup() {
+  miPopup.style.display = "flex";
 }
