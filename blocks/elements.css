@@ -63,3 +63,18 @@
 .elements__image-like:hover {
   opacity: 50%;
 }
+
+@media screen and (max-width: 550px) {
+  .elements__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .elements__content {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+  }
+}
