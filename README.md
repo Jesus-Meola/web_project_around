@@ -6,3 +6,7 @@ Se usaron las Tecnologias HTML, CSS y JavaScript donde solamente se puede modifi
 
 Mejoras para el Proyecto:
 El plan de este proyecto es hacer toda la pagina funcional donde se puedan cargar y eliminar las fotos que cada persona desee y poder activar el boton de me gusta y si es posible añadir alguna otra interaccion que haga al proyecto algo mas interesante.
+
+Github-pages:
+
+https://jesus-meola.github.io/web_project_around/
