@@ -1,8 +1,5 @@
 .popup {
   display: none;
-  position: absolute;
-  top: 7%;
-  left: 31%;
 }
 
 .popup__form {
@@ -12,6 +9,8 @@
   width: 430px;
   background-color: #ffffff;
   border-radius: 10px;
+  top: 23%;
+  left: 29%;
 }
 
 .popup__button-closed {
@@ -81,4 +80,57 @@
 }
 .popup_open {
   display: flex;
+}
+
+@media screen and (max-width: 660px) {
+  .popup__form {
+    top: 20%;
+    left: 13%;
+  }
+
+  .popup__button-closed {
+    top: -40px;
+    right: -1px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .popup__form {
+    max-width: 282px;
+    top: 20%;
+    left: 22%;
+  }
+
+  .popup__name {
+    max-width: 206px;
+  }
+
+  .popup__description {
+    max-width: 206px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .popup__form {
+    top: 20%;
+    left: 6%;
+  }
+
+  .popup__button-closed {
+    max-width: 26px;
+    top: -40px;
+    right: -1px;
+  }
+
+  .popup__header {
+    font-size: 18px;
+    line-height: 21.78px;
+    font-weight: 900;
+  }
+
+  .popup__button-create {
+    font-size: 14px;
+    line-height: 16.94px;
+    font-weight: 400;
+  }
 }
