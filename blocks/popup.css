@@ -10,7 +10,7 @@
   background-color: #ffffff;
   border-radius: 10px;
   top: 23%;
-  left: 29%;
+  left: 33%;
 }
 
 .popup__button-closed {
@@ -78,14 +78,22 @@
   left: 0;
   background-color: rgb(0, 0, 0, 0.5);
 }
+
 .popup_open {
   display: flex;
 }
 
+@media screen and (max-width: 880px) {
+  .popup__form {
+    top: 18%;
+    left: 27%;
+  }
+}
+
 @media screen and (max-width: 660px) {
   .popup__form {
-    top: 20%;
-    left: 13%;
+    top: 19%;
+    left: 20%;
   }
 
   .popup__button-closed {
@@ -94,7 +102,7 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
   .popup__form {
     max-width: 282px;
     top: 20%;

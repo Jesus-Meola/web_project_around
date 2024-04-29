@@ -15,8 +15,8 @@
 }
 
 .profile__info {
+  max-width: 420px;
   grid-area: text;
-  max-width: 430px;
   align-content: center;
   margin-left: 30px;
 }
@@ -68,6 +68,33 @@
 
 .profile__add-button:hover {
   opacity: 50%;
+}
+
+@media screen and (max-width: 880px) {
+  .profile {
+    margin: 0 15px;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .profile__name {
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .profile__profession {
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 400;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .profile__add-button {
+    max-width: 100px;
+  }
 }
 
 @media screen and (max-width: 550px) {
