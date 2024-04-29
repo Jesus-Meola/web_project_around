@@ -27,6 +27,10 @@
   margin: 0;
 }
 
+.profile__text {
+  overflow: hidden;
+}
+
 .profile__edit-button {
   cursor: pointer;
   margin-left: 10px;
@@ -41,6 +45,7 @@
   line-height: 21.78px;
   font-weight: 400;
   margin: 0;
+  overflow: hidden;
 }
 
 .profile__add-button {

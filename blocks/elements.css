@@ -9,12 +9,13 @@
   margin: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 15px;
   list-style-type: none;
 }
 
 .elements__card {
   max-width: 282px;
+  max-height: 361px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -23,6 +24,8 @@
 }
 
 .elements__image {
+  max-width: 282px;
+  max-height: 282px;
   width: 100%;
   height: 100%;
 }
@@ -41,6 +44,7 @@
 .elements__text {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   background-color: #ffffff;
   max-height: 79px;
 }
@@ -53,6 +57,9 @@
   height: 79px;
   margin: 0;
   align-content: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .elements__image-like {
