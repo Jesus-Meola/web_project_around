@@ -39,7 +39,7 @@
           />
         </section>
         <section class="elements">
-          <ul class="elements__content">
+          <!-- <ul class="elements__content">
             <li class="elements__card">
               <img
                 src="images/ValleYosemite.jpg"
@@ -161,8 +161,28 @@
                 />
               </div>
             </li>
-          </ul>
+          </ul> -->
         </section>
+
+        <template class="template-card">
+          <article class="elements__card">
+            <img src="" alt="" class="elements__image" />
+            <img
+              src="/images/Trash.svg"
+              alt="Image Trash"
+              class="elements__image-trash"
+            />
+            <div class="elements__text">
+              <h1 class="elements__title"></h1>
+              <img
+                src="/images/Megusta.svg"
+                alt="Like"
+                class="elements__image-like"
+              />
+            </div>
+          </article>
+        </template>
+
         <div class="popup">
           <div class="popup__overlay"></div>
           <form class="popup__form">
@@ -185,6 +205,33 @@
               placeholder="Explorador"
             />
             <button type="button" class="popup__button-create">Guardar</button>
+          </form>
+        </div>
+
+        <div class="popup__card">
+          <div class="popup__card-overlay"></div>
+          <form class="popup__card-form">
+            <img
+              src="images/CloseIcon.png"
+              alt="Boton de Cierre"
+              class="popup__card_button-closed"
+            />
+            <h3 class="popup__card-header">Nuevo Lugar</h3>
+            <input
+              type="text"
+              id="title"
+              class="popup__card-title"
+              placeholder="Titulo"
+            />
+            <input
+              type="text"
+              id="url"
+              class="popup__card-url"
+              placeholder="Enlace a la imagen"
+            />
+            <button type="button" class="popup__card_button-create">
+              Crear
+            </button>
           </form>
         </div>
       </main>
