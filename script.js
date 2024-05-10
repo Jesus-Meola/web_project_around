@@ -101,4 +101,5 @@ initialCards.forEach(function (element) {
 formCardPopup.addEventListener("submit", function (evt) {
   evt.preventDefault();
   cardAdd();
+  closeCardPopup();
 });
