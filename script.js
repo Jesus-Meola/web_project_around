@@ -17,7 +17,12 @@ const cardUrl = contenido.querySelector(".elements__image");
 const inputCardTitle = document.querySelector(".popup__card-title");
 const inputUrl = document.querySelector(".popup__card-url");
 const buttonCloseAddCard = document.querySelector(".popup__card_button-closed");
-console.log(cardUrl);
+const popupImage = document.querySelector(".popup__image");
+console.log(popupImage);
+const buttonClosePopupImage = document.querySelector(
+  ".popup__image_button-closed"
+);
+
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -103,10 +108,21 @@ initialCards.forEach(function (element) {
 
 formCardPopup.addEventListener("submit", function (evt) {
   evt.preventDefault();
-  const cardToAdd = cardAdd();
+
+  const cardToAdd = cardAdd(inputCardTitle.value, inputUrl.value);
   cardZone.prepend(cardToAdd);
 
-  cardName.textContent = inputCardTitle.value;
-  cardUrl.src = inputUrl.value;
   closeCardPopup();
+});
+
+// function openPopupImage() {
+//   popupImage.classList.add("popup__image-show");
+// }
+
+cardUrl.addEventListener("click", function () {
+  popupImage.classList.add("popup__image-open");
+});
+
+buttonClosePopupImage.addEventListener("click", function () {
+  popupImage.classList.remove("popup__image-open");
 });
