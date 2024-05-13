@@ -17,7 +17,7 @@ const cardUrl = contenido.querySelector(".elements__image");
 const inputCardTitle = document.querySelector(".popup__card-title");
 const inputUrl = document.querySelector(".popup__card-url");
 const buttonCloseAddCard = document.querySelector(".popup__card_button-closed");
-console.log(inputUrl);
+console.log(cardUrl);
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -103,7 +103,6 @@ initialCards.forEach(function (element) {
 
 formCardPopup.addEventListener("submit", function (evt) {
   evt.preventDefault();
-
   const cardToAdd = cardAdd();
   cardZone.prepend(cardToAdd);
 

@@ -10,11 +10,10 @@
 .elements__content {
   padding: 0;
   margin: 0;
-  list-style-type: none;
 }
 
 .elements__card {
-  width: 282px;
+  max-width: 282px;
   height: 361px;
   position: relative;
   display: flex;
@@ -75,21 +74,21 @@
   background-image: url(/images/Union.png);
 }
 
-@media screen and (max-width: 880px) {
-  .elements__content {
+@media screen and (max-width: 900px) {
+  .elements {
     margin: 0 15px;
   }
 }
 
-@media screen and (max-width: 550px) {
-  .elements__content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+@media screen and (max-width: 780px) {
+  .elements {
+    grid-template-columns: repeat(2, 282px);
+    justify-content: center;
   }
 }
 
-@media screen and (max-width: 430px) {
-  .elements__content {
+@media screen and (max-width: 590px) {
+  .elements {
     display: grid;
     grid-template-columns: auto;
     justify-content: center;
