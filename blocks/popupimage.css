@@ -22,8 +22,7 @@
 .popup__image-photo {
   width: 433px;
   height: 540px;
-  max-width: 75vw;
-  max-height: 75vh;
+  object-fit: cover;
 }
 
 .popup__image-name {
@@ -36,4 +35,22 @@
 
 .popup__image-open {
   display: flex;
+}
+
+@media screen and (max-width: 590px) {
+  .popup__image {
+    top: 38%;
+  }
+
+  .popup__image-photo {
+    width: 240px;
+    height: 299px;
+  }
+
+  .popup__image_button-closed {
+    width: 30px;
+    height: 30px;
+    top: -30px;
+    right: -30px;
+  }
 }

@@ -4,8 +4,10 @@ Descripcion: es un proyecto basado en postales de algunos lugares del mundo dond
 
 Se usaron las Tecnologias HTML, CSS y JavaScript donde solamente se puede modificar el nombre de la persona por los momentos.
 
+Se le hacen mejoras al Proyecto ya esta funcional el boton de agregar cartas, eliminar las cartas y el boton de me gusta.
+
 Mejoras para el Proyecto:
-El plan de este proyecto es hacer toda la pagina funcional donde se puedan cargar y eliminar las fotos que cada persona desee y poder activar el boton de me gusta y si es posible añadir alguna otra interaccion que haga al proyecto algo mas interesante.
+Usar la creatividad para añadir alguna otra interaccion que haga al proyecto algo mas interesante.
 
 Github-pages:
 
