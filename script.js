@@ -10,12 +10,12 @@ const template = document.querySelector(".template-card");
 const cardZone = document.querySelector(".elements");
 const contenido = template.content;
 const buttonAddCard = document.querySelector(".profile__add-button");
-const cardPopup = document.querySelector(".popup__card");
+const cardPopup = document.querySelector("#popup-card");
 const formCardPopup = document.querySelector(".popup__card-form");
 const inputCardTitle = document.querySelector(".popup__card-title");
 const inputUrl = document.querySelector(".popup__card-url");
 const buttonCloseAddCard = document.querySelector(".popup__card_button-closed");
-const popupImage = document.querySelector(".popup__image");
+const popupImage = document.querySelector("#popup-image");
 const buttonClosePopupImage = document.querySelector(
   ".popup__image_button-closed"
 );
