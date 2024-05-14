@@ -5,7 +5,7 @@
   transform: translate(-50%, -50%);
 }
 
-.popup__image_button-closed {
+.popup__image-button-closed {
   width: 40px;
   height: 40px;
   position: absolute;
@@ -14,7 +14,7 @@
   cursor: pointer;
 }
 
-.popup__image_button-closed:hover {
+.popup__image-button-closed:hover {
   opacity: 50%;
 }
 
@@ -32,7 +32,7 @@
   margin-top: 10px;
 }
 
-.pop__image-overlay {
+.popup__image-overlay {
   position: fixed;
   width: 100%;
   height: 100%;

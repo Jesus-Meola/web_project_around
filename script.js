@@ -14,10 +14,10 @@ const cardPopup = document.querySelector("#popup-card");
 const formCardPopup = document.querySelector(".popup__card-form");
 const inputCardTitle = document.querySelector(".popup__card-title");
 const inputUrl = document.querySelector(".popup__card-url");
-const buttonCloseAddCard = document.querySelector(".popup__card_button-closed");
+const buttonCloseAddCard = document.querySelector(".popup__card-button-closed");
 const popupImage = document.querySelector("#popup-image");
 const buttonClosePopupImage = document.querySelector(
-  ".popup__image_button-closed"
+  ".popup__image-button-closed"
 );
 
 const initialCards = [
