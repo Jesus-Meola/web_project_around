@@ -70,23 +70,33 @@
             <h3 class="popup__header">Edit profile</h3>
             <input
               type="text"
-              id="name"
-              class="popup__name"
+              id="input-name"
+              class="popup__name popup__input"
+              minlength="2"
+              maxlength="40"
               placeholder="Jacques Cousteau"
+              required
             />
+            <span class="popup__error_visible input-name-error"></span>
+
             <input
               type="text"
-              id="description"
-              class="popup__description"
+              id="input-description"
+              class="popup__description popup__input"
+              minlength="2"
+              maxlength="40"
               placeholder="Explorador"
+              required
             />
-            <button type="button" class="popup__button-create">Guardar</button>
+            <span class="popup__error_visible input-description-error"></span>
+
+            <button type="submit" class="popup__button-create">Guardar</button>
           </form>
         </div>
 
         <div class="popup" id="popup-card">
           <div class="popup__card-overlay"></div>
-          <form class="popup__card-form">
+          <form class="popup__card-form popup__form">
             <img
               src="images/CloseIcon.png"
               alt="Boton de Cierre"
@@ -95,16 +105,26 @@
             <h3 class="popup__card-header">Nuevo Lugar</h3>
             <input
               type="text"
-              id="title"
-              class="popup__card-title"
+              id="input-title"
+              class="popup__card-title popup__input"
+              value=""
+              minlength="2"
+              maxlength="40"
               placeholder="Titulo"
+              required
             />
+            <span class="popup__error_visible input-title-error"></span>
+
             <input
-              type="text"
-              id="url"
-              class="popup__card-url"
+              type="url"
+              id="input-url"
+              class="popup__card-url popup__input"
+              value=""
               placeholder="Enlace a la imagen"
+              required
             />
+            <span class="popup__error_visible input-url-error"></span>
+
             <button type="submit" class="popup__card-button-create">
               Crear
             </button>
@@ -129,5 +149,6 @@
       </footer>
     </div>
     <script src="script.js"></script>
+    <script src="validate.js"></script>
   </body>
 </html>
