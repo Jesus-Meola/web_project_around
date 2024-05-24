@@ -74,6 +74,15 @@
   opacity: 80%;
 }
 
+.popup__button_disabled {
+  font-size: 18px;
+  line-height: 21.78px;
+  font-weight: 400;
+  background-color: #ffffff;
+  color: #000000;
+  opacity: 20%;
+}
+
 .popup__overlay {
   position: fixed;
   width: 100%;
@@ -91,7 +100,7 @@
   margin: 2px 0 0 36px;
 }
 
-.popup_open {
+.popup__open {
   display: flex;
 }
 

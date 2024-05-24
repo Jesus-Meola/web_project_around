@@ -90,12 +90,14 @@
             />
             <span class="popup__error_visible input-description-error"></span>
 
-            <button type="submit" class="popup__button-create">Guardar</button>
+            <button type="submit" class="popup__button-create popup__button">
+              Guardar
+            </button>
           </form>
         </div>
 
         <div class="popup" id="popup-card">
-          <div class="popup__card-overlay"></div>
+          <div class="popup__overlay"></div>
           <form class="popup__card-form popup__form">
             <img
               src="images/CloseIcon.png"
@@ -120,19 +122,23 @@
               id="input-url"
               class="popup__card-url popup__input"
               value=""
+              minlength="2"
               placeholder="Enlace a la imagen"
               required
             />
             <span class="popup__error_visible input-url-error"></span>
 
-            <button type="submit" class="popup__card-button-create">
+            <button
+              type="submit"
+              class="popup__card-button-create popup__button"
+            >
               Crear
             </button>
           </form>
         </div>
 
         <div class="popup" id="popup-image">
-          <div class="popup__image-overlay"></div>
+          <div class="popup__overlay"></div>
           <div class="popup__image-content">
             <img
               src="images/CloseIcon.png"

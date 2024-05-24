@@ -54,11 +54,11 @@ buttonAddCard.addEventListener("click", openCardPopup);
 buttonCloseAddCard.addEventListener("click", closeCardPopup);
 
 function openPopup() {
-  miPopup.classList.add("popup_open");
+  miPopup.classList.add("popup__open");
 }
 
 function closePopup() {
-  miPopup.classList.remove("popup_open");
+  miPopup.classList.remove("popup__open");
 }
 
 function saveChanges() {
@@ -69,11 +69,11 @@ function saveChanges() {
 }
 
 function openCardPopup() {
-  cardPopup.classList.add("popup_card-open");
+  cardPopup.classList.add("popup__open");
 }
 
 function closeCardPopup() {
-  cardPopup.classList.remove("popup_card-open");
+  cardPopup.classList.remove("popup__open");
 }
 
 function cardAdd(name, link) {
@@ -93,7 +93,7 @@ function cardAdd(name, link) {
   });
 
   cardImage.addEventListener("click", function () {
-    popupImage.classList.add("popup__image-open");
+    popupImage.classList.add("popup__open");
     const popupPhoto = popupImage.querySelector(".popup__image-photo");
     const popupTitle = popupImage.querySelector(".popup__image-name");
 
@@ -123,5 +123,5 @@ formCardPopup.addEventListener("submit", function (evt) {
 });
 
 buttonClosePopupImage.addEventListener("click", function () {
-  popupImage.classList.remove("popup__image-open");
+  popupImage.classList.remove("popup__open");
 });
