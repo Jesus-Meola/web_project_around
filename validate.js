@@ -69,13 +69,22 @@ enableValidation({
   submitButtonSelector: ".popup__button",
   inactiveButtonClass: "popup__button_disabled",
   inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
+  errorClass: "popup__error-visible",
 });
 
 const popupOverlay = document.querySelectorAll(".popup__overlay");
+const allPopup = document.querySelectorAll(".popup");
 
 popupOverlay.forEach((overlay) => {
   overlay.addEventListener("click", () => {
     overlay.parentNode.classList.remove("popup__open");
   });
 });
+
+// document.addEventListener("keydown", (evt) => {
+//   if (evt.key === "Escape") {
+//     allPopup.forEach((popup) => {
+//       popup.classList.remove("popup__open");
+//     });
+//   }
+// });

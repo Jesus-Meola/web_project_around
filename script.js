@@ -125,3 +125,18 @@ formCardPopup.addEventListener("submit", function (evt) {
 buttonClosePopupImage.addEventListener("click", function () {
   popupImage.classList.remove("popup__open");
 });
+
+function openAllPopup(popupElements) {
+  popupElements.forEach((popup) => {
+    popup.classList.add("popup__open");
+    document.addEventListener("keydown", (evt) => {
+      if (evt.key === "Escape") {
+        allPopup.forEach((popup) => {
+          popup.classList.remove("popup__open");
+        });
+      }
+    });
+  });
+}
+
+openAllPopup(miPopup, cardPopup, popupImage);
