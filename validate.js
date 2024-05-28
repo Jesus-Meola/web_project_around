@@ -80,11 +80,3 @@ popupOverlay.forEach((overlay) => {
     overlay.parentNode.classList.remove("popup__open");
   });
 });
-
-// document.addEventListener("keydown", (evt) => {
-//   if (evt.key === "Escape") {
-//     allPopup.forEach((popup) => {
-//       popup.classList.remove("popup__open");
-//     });
-//   }
-// });

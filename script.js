@@ -67,23 +67,23 @@ buttonCloseAddCard.addEventListener("click", () => {
 
 function openPopup(popup) {
   popup.classList.add("popup__open");
+  document.addEventListener("keydown", handleEscapeKey);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup__open");
+  if (document.querySelectorAll(".popup__open").length === 0) {
+    document.removeEventListener("keydown", handleEscapeKey);
+  }
 }
 
-// const allPopup = document.querySelectorAll(".popup");
-
-document.addEventListener("keydown", (evt) => {
+function handleEscapeKey(evt) {
   console.log(evt);
   if (evt.key === "Escape") {
     const openPopups = document.querySelectorAll(".popup__open");
-    openPopups.forEach((popup) => {
-      closePopup(popup);
-    });
+    openPopups.forEach((popup) => closePopup(popup));
   }
-});
+}
 
 function saveChanges() {
   profileText.textContent = nameInput.value;
@@ -91,10 +91,6 @@ function saveChanges() {
 
   closePopup(miPopup);
 }
-
-// function closeCardPopup() {
-//   cardPopup.classList.remove("popup__open");
-// }
 
 function cardAdd(name, link) {
   const card = template
