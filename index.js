@@ -48,8 +48,11 @@ initialCards.forEach(function (element) {
 formCardPopup.addEventListener("submit", function (evt) {
   evt.preventDefault();
 
-  // const cardToAdd = cardAdd(inputCardTitle.value, inputUrl.value);
-  // cardZone.prepend(cardToAdd);
-  console.log("Intento de mandar Formulario");
+  const newCardToAdd = new Card(
+    inputCardTitle.value,
+    inputUrl.value
+  ).generateCard();
+  cardZone.prepend(newCardToAdd);
+
   closePopup(cardPopup);
 });
