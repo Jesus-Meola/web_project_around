@@ -1,5 +1,5 @@
-import { handleEscapeKey } from "./index.js";
-import { popupImage, template } from "./utils.js";
+import { template } from "./index.js";
+import { handleEscapeKey, popupImage } from "./utils.js";
 
 export default class Card {
   constructor(name, link) {

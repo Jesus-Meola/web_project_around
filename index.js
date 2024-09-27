@@ -1,3 +1,7 @@
+import { cardPopup, closePopup } from "./utils.js";
+
+import Card from "./Card.js";
+
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -25,23 +29,7 @@ const initialCards = [
   },
 ];
 
-import {
-  editButton,
-  miPopup,
-  closeButton,
-  saveButton,
-  template,
-  cardZone,
-  buttonAddCard,
-  cardPopup,
-  formCardPopup,
-  buttonCloseAddCard,
-  popupImage,
-  buttonClosePopupImage,
-} from "./utils.js";
-
-import Card from "./Card.js";
-
+export const template = document.querySelector(".template-card");
 const nameInput = document.querySelector(".popup__name");
 const jobInput = document.querySelector(".popup__description");
 const profileText = document.querySelector(".profile__text");
@@ -49,73 +37,19 @@ const profileProfession = document.querySelector(".profile__profession");
 const contenido = template.content;
 const inputCardTitle = document.querySelector(".popup__card-title");
 const inputUrl = document.querySelector(".popup__card-url");
-
-editButton.addEventListener("click", () => {
-  openPopup(miPopup);
-});
-
-closeButton.addEventListener("click", () => {
-  closePopup(miPopup);
-});
-
-saveButton.addEventListener("click", saveChanges);
-
-buttonAddCard.addEventListener("click", () => {
-  openPopup(cardPopup);
-});
-
-buttonCloseAddCard.addEventListener("click", () => {
-  closePopup(cardPopup);
-});
-
-function openPopup(popup) {
-  popup.classList.add("popup__open");
-  document.addEventListener("keydown", handleEscapeKey);
-}
-
-function closePopup(popup) {
-  popup.classList.remove("popup__open");
-  if (document.querySelectorAll(".popup__open").length === 0) {
-    document.removeEventListener("keydown", handleEscapeKey);
-  }
-}
-
-export function handleEscapeKey(evt) {
-  if (evt.key === "Escape") {
-    const openPopups = document.querySelectorAll(".popup__open");
-    openPopups.forEach((popup) => closePopup(popup));
-  }
-}
-
-function saveChanges() {
-  profileText.textContent = nameInput.value;
-  profileProfession.textContent = jobInput.value;
-
-  closePopup(miPopup);
-}
+const cardZone = document.querySelector(".elements");
+const formCardPopup = document.querySelector(".popup__card-form");
 
 initialCards.forEach(function (element) {
   const newCard = new Card(element.name, element.link).generateCard();
   cardZone.append(newCard);
 });
 
-editButton.addEventListener("click", function () {
-  openPopup(miPopup);
-});
-
-closeButton.addEventListener("click", function () {
-  closePopup(miPopup);
-});
-
 formCardPopup.addEventListener("submit", function (evt) {
   evt.preventDefault();
 
-  const cardToAdd = cardAdd(inputCardTitle.value, inputUrl.value);
-  cardZone.prepend(cardToAdd);
-
+  // const cardToAdd = cardAdd(inputCardTitle.value, inputUrl.value);
+  // cardZone.prepend(cardToAdd);
+  console.log("Intento de mandar Formulario");
   closePopup(cardPopup);
-});
-
-buttonClosePopupImage.addEventListener("click", () => {
-  closePopup(popupImage);
 });
