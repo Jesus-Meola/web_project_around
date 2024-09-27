@@ -1,27 +1,54 @@
+const initialCards = [
+  {
+    name: "Valle de Yosemite",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
+  },
+  {
+    name: "Lago Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
+  },
+  {
+    name: "Montañas Calvas",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
+  },
+  {
+    name: "Parque Nacional de la Vanoise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
+  },
+];
+
 import {
-  initialCards,
   editButton,
   miPopup,
   closeButton,
-  nameInput,
-  jobInput,
   saveButton,
-  profileText,
-  profileProfession,
   template,
   cardZone,
-  contenido,
   buttonAddCard,
   cardPopup,
   formCardPopup,
-  inputCardTitle,
-  inputUrl,
   buttonCloseAddCard,
   popupImage,
   buttonClosePopupImage,
 } from "./utils.js";
 
 import Card from "./Card.js";
+
+const nameInput = document.querySelector(".popup__name");
+const jobInput = document.querySelector(".popup__description");
+const profileText = document.querySelector(".profile__text");
+const profileProfession = document.querySelector(".profile__profession");
+const contenido = template.content;
+const inputCardTitle = document.querySelector(".popup__card-title");
+const inputUrl = document.querySelector(".popup__card-url");
 
 editButton.addEventListener("click", () => {
   openPopup(miPopup);
@@ -66,43 +93,6 @@ function saveChanges() {
 
   closePopup(miPopup);
 }
-
-// function cardAdd(name, link) {
-//   const card = template
-//     .cloneNode(true)
-//     .content.querySelector(".elements__card");
-//   const cardImage = card.querySelector(".elements__image");
-//   const buttonDeleteCard = card.querySelector(".elements__image-trash");
-//   const cardTitle = card.querySelector(".elements__title");
-//   const buttonLike = card.querySelector(".elements__image-like");
-
-//   buttonDeleteCard.addEventListener("click", function () {
-//     card.remove();
-//   });
-//   buttonLike.addEventListener("click", function () {
-//     buttonLike.classList.toggle("elements__image-like_active");
-//   });
-
-//   cardImage.addEventListener("click", function () {
-//     openPopup(popupImage);
-//     const popupPhoto = popupImage.querySelector(".popup__image-photo");
-//     const popupTitle = popupImage.querySelector(".popup__image-name");
-
-//     popupPhoto.src = link;
-//     popupTitle.textContent = name;
-//     cardImage.alt = name;
-//   });
-
-//   cardImage.src = link;
-//   cardTitle.textContent = name;
-//   cardImage.alt = name;
-//   return card;
-// }
-
-// initialCards.forEach(function (element) {
-//   const newCard = cardAdd(element.name, element.link);
-//   cardZone.append(newCard);
-// });
 
 initialCards.forEach(function (element) {
   const newCard = new Card(element.name, element.link).generateCard();
