@@ -30,10 +30,10 @@ const initialCards = [
 ];
 
 export const template = document.querySelector(".template-card");
-const nameInput = document.querySelector(".popup__name");
-const jobInput = document.querySelector(".popup__description");
-const profileText = document.querySelector(".profile__text");
-const profileProfession = document.querySelector(".profile__profession");
+export const nameInput = document.querySelector(".popup__name");
+export const jobInput = document.querySelector(".popup__description");
+export const profileText = document.querySelector(".profile__text");
+export const profileProfession = document.querySelector(".profile__profession");
 const contenido = template.content;
 const inputCardTitle = document.querySelector(".popup__card-title");
 const inputUrl = document.querySelector(".popup__card-url");

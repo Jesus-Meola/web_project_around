@@ -73,7 +73,6 @@ enableValidation({
 });
 
 const popupOverlay = document.querySelectorAll(".popup__overlay");
-const allPopup = document.querySelectorAll(".popup");
 
 popupOverlay.forEach((overlay) => {
   overlay.addEventListener("click", () => {
