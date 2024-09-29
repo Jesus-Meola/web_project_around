@@ -15,13 +15,19 @@ export default class FormValidator {
     this.errorElement.textContent = errorMessage;
   }
 
-  _hideInputError() {}
+  _hideInputError(errorMessage) {
+    this.errorElement = this._formElement.querySelector(
+      `.${inputElement.id}-error`
+    );
+    inputElement.classList.remove(this.settings.inputErrorClass);
+    errorElement.textContent = "";
+  }
+
+  _checkInputValidity() {}
 
   _hasInvalidInput() {}
 
   _toggleButtonState() {}
-
-  _checkInputValidity() {}
 
   _setEventlisteners() {}
 

@@ -39,6 +39,7 @@ const inputCardTitle = document.querySelector(".popup__card-title");
 const inputUrl = document.querySelector(".popup__card-url");
 const cardZone = document.querySelector(".elements");
 const formCardPopup = document.querySelector(".popup__card-form");
+const popupOverlay = document.querySelectorAll(".popup__overlay");
 
 initialCards.forEach(function (element) {
   const newCard = new Card(element.name, element.link).generateCard();
@@ -55,4 +56,10 @@ formCardPopup.addEventListener("submit", function (evt) {
   cardZone.prepend(newCardToAdd);
 
   closePopup(cardPopup);
+});
+
+popupOverlay.forEach((overlay) => {
+  overlay.addEventListener("click", () => {
+    overlay.parentNode.classList.remove("popup__open");
+  });
 });

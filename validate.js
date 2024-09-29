@@ -71,11 +71,3 @@ enableValidation({
   inputErrorClass: "popup__input_type_error",
   errorClass: "popup__error-visible",
 });
-
-const popupOverlay = document.querySelectorAll(".popup__overlay");
-
-popupOverlay.forEach((overlay) => {
-  overlay.addEventListener("click", () => {
-    overlay.parentNode.classList.remove("popup__open");
-  });
-});
