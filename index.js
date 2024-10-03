@@ -2,6 +2,8 @@ import { cardPopup, closePopup } from "./utils.js";
 
 import Card from "./Card.js";
 
+import FormValidator from "./FormValidator.js";
+
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -63,3 +65,14 @@ popupOverlay.forEach((overlay) => {
     overlay.parentNode.classList.remove("popup__open");
   });
 });
+
+const newForm = new FormValidator(".popup__form", {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error-visible",
+});
+
+newForm.enableValidation();

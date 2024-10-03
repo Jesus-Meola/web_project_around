@@ -1,9 +1,9 @@
 export default class FormValidator {
   constructor(formElement, settings) {
-    this._formElement = formElement;
+    this._formElement = document.querySelector(formElement);
     this.settings = settings;
     this._inputList = Array.from(
-      formElement.querySelectorAll(settings.inputSelector)
+      this._formElement.querySelectorAll(this.settings.inputSelector)
     );
   }
 
@@ -23,13 +23,58 @@ export default class FormValidator {
     errorElement.textContent = "";
   }
 
-  _checkInputValidity() {}
+  _checkInputValidity(formElement, settings) {
+    if (!inputElement.validity.valid) {
+      showInputError(
+        formElement,
+        inputElement,
+        inputElement.validationMessage,
+        settings
+      );
+    } else {
+      hideInputError(formElement, settings);
+    }
+  }
 
-  _hasInvalidInput() {}
+  _hasInvalidInput(inputList) {
+    return inputList.some((inputElement) => {
+      return !inputElement.validity.valid;
+    });
+  }
 
-  _toggleButtonState() {}
+  _toggleButtonState(inputList, buttonElement) {
+    console.log(hasInvalidInput(inputList));
+    if (hasInvalidInput(inputList)) {
+      buttonElement.classList.add("popup__button_disabled");
+    } else {
+      buttonElement.classList.remove("popup__button_disabled");
+    }
+  }
 
-  _setEventlisteners() {}
+  _setEventlisteners(formElement, settings) {
+    this.inputList = Array.from(
+      formElement.querySelectorAll(this.settings.inputSelector)
+    );
+    this.buttonElement = formElement.querySelector(".popup__button");
+    toggleButtonState(inputList, buttonElement);
 
-  enableValidation() {}
+    this.inputList.forEach((inputElement) => {
+      inputElement.addEventListener("input", function () {
+        checkInputValidity(formElement, inputElement, settings);
+        toggleButtonState(inputList, buttonElement);
+      });
+    });
+  }
+
+  enableValidation(settings) {
+    this.formList = Array.from(
+      document.querySelectorAll(this.settings.formSelector)
+    );
+    this.formList.forEach((formElement) => {
+      formElement.addEventListener("submit", function (evt) {
+        evt.preventDefault();
+      });
+      setEventListeners(formElement, settings);
+    });
+  }
 }
