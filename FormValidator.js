@@ -7,7 +7,7 @@ export default class FormValidator {
     );
   }
 
-  _showInputError(errorMessage) {
+  _showInputError(formElement, inputElement, errorMessage, settings) {
     this.errorElement = this._formElement.querySelector(
       `.${inputElement.id}-error`
     );
@@ -15,15 +15,15 @@ export default class FormValidator {
     this.errorElement.textContent = errorMessage;
   }
 
-  _hideInputError(errorMessage) {
+  _hideInputError(formElement, inputElement, settings) {
     this.errorElement = this._formElement.querySelector(
       `.${inputElement.id}-error`
     );
     inputElement.classList.remove(this.settings.inputErrorClass);
-    errorElement.textContent = "";
+    this.errorElement.textContent = "";
   }
 
-  _checkInputValidity(formElement, settings) {
+  _checkInputValidity(formElement, inputElement, settings) {
     if (!inputElement.validity.valid) {
       this._showInputError(
         formElement,
@@ -32,7 +32,7 @@ export default class FormValidator {
         settings
       );
     } else {
-      this._hideInputError(formElement, settings);
+      this._hideInputError(formElement, inputElement, settings);
     }
   }
 
@@ -73,7 +73,6 @@ export default class FormValidator {
       formElement.addEventListener("submit", function (evt) {
         evt.preventDefault();
       });
-      console.log(this);
       this._setEventListeners(formElement, settings);
     });
   }
