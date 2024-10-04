@@ -7,14 +7,18 @@ export default class FormValidator {
     );
   }
 
-  _showInputError(formElement, inputElement, errorMessage, settings) {
-    this.errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  _showInputError(/*formElement,*/ inputElement, errorMessage /*settings*/) {
+    this.errorElement = this._formElement.querySelector(
+      `.${inputElement.id}-error`
+    );
     inputElement.classList.add(this.settings.inputErrorClass);
     this.errorElement.textContent = errorMessage;
   }
 
-  _hideInputError(formElement, inputElement, settings) {
-    this.errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+  _hideInputError(/*formElement,*/ inputElement /*settings*/) {
+    this.errorElement = this._formElement.querySelector(
+      `.${inputElement.id}-error`
+    );
     inputElement.classList.remove(this.settings.inputErrorClass);
     this.errorElement.textContent = "";
   }
@@ -22,10 +26,10 @@ export default class FormValidator {
   _checkInputValidity(formElement, inputElement, settings) {
     if (!inputElement.validity.valid) {
       this._showInputError(
-        formElement,
+        /*formElement,*/
         inputElement,
-        inputElement.validationMessage,
-        settings
+        inputElement.validationMessage
+        /*settings*/
       );
     } else {
       this._hideInputError(formElement, inputElement, settings);
@@ -63,14 +67,9 @@ export default class FormValidator {
   }
 
   enableValidation(settings) {
-    this.formList = Array.from(
-      document.querySelectorAll(this.settings.formSelector)
-    );
-    this.formList.forEach((formElement) => {
-      formElement.addEventListener("submit", function (evt) {
-        evt.preventDefault();
-      });
-      this._setEventListeners(formElement, settings);
+    this._formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      this._setEventListeners(this._formElement, settings);
     });
   }
 }

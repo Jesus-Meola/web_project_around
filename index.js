@@ -66,7 +66,7 @@ popupOverlay.forEach((overlay) => {
   });
 });
 
-const newForm = new FormValidator(".popup__form", {
+const formProfile = new FormValidator(".popup__form", {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
@@ -75,4 +75,14 @@ const newForm = new FormValidator(".popup__form", {
   errorClass: "popup__error-visible",
 });
 
-newForm.enableValidation();
+const formCard = new FormValidator(".popup__card-form", {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error-visible",
+});
+
+formProfile.enableValidation();
+formCard.enableValidation();
