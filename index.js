@@ -66,7 +66,7 @@ popupOverlay.forEach((overlay) => {
   });
 });
 
-const formProfile = new FormValidator(".popup__form", {
+const formProfile = new FormValidator(".popup__profile-form", {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
