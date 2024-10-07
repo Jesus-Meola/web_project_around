@@ -7,8 +7,7 @@ export default class FormValidator {
     );
   }
 
-  _showInputError(/*formElement,*/ inputElement, errorMessage /*settings*/) {
-    console.log(inputElement);
+  _showInputError(inputElement, errorMessage) {
     this.errorElement = this._formElement.querySelector(
       `.${inputElement.id}-error`
     );
@@ -16,8 +15,7 @@ export default class FormValidator {
     this.errorElement.textContent = errorMessage;
   }
 
-  _hideInputError(/*formElement,*/ inputElement /*settings*/) {
-    console.log(inputElement);
+  _hideInputError(inputElement) {
     this.errorElement = this._formElement.querySelector(
       `.${inputElement.id}-error`
     );
@@ -25,30 +23,21 @@ export default class FormValidator {
     this.errorElement.textContent = "";
   }
 
-  _checkInputValidity(formElement, inputElement, settings) {
-    console.log(inputElement);
+  _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
-      this._showInputError(
-        /*formElement,*/
-        inputElement,
-        inputElement.validationMessage
-        /*settings*/
-      );
+      this._showInputError(inputElement, inputElement.validationMessage);
     } else {
-      this._hideInputError(this._formElement, inputElement, this.settings);
+      this._hideInputError(inputElement);
     }
   }
 
   _hasInvalidInput(inputList) {
-    console.log(inputList);
     return inputList.some((inputElement) => {
-      console.log(inputElement);
       return !inputElement.validity.valid;
     });
   }
 
   _toggleButtonState(inputList, buttonElement) {
-    console.log(inputList);
     if (this._hasInvalidInput(inputList)) {
       buttonElement.classList.add("popup__button_disabled");
       buttonElement.disabled = true;
@@ -59,7 +48,6 @@ export default class FormValidator {
   }
 
   _setEventListeners(formElement, settings) {
-    console.log(settings);
     this.inputList = Array.from(
       formElement.querySelectorAll(this.settings.inputSelector)
     );
@@ -67,13 +55,8 @@ export default class FormValidator {
     this._toggleButtonState(this.inputList, this.buttonElement);
 
     this.inputList.forEach((inputElement) => {
-      console.log(inputElement);
       inputElement.addEventListener("input", () => {
-        this._checkInputValidity(
-          this._formElement,
-          inputElement,
-          this.settings
-        );
+        this._checkInputValidity(inputElement);
         this._toggleButtonState(this.inputList, this.buttonElement);
       });
     });
@@ -82,7 +65,7 @@ export default class FormValidator {
   enableValidation() {
     this._formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this._setEventListeners(this._formElement, this.settings);
     });
+    this._setEventListeners(this._formElement, this.settings);
   }
 }
