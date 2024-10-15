@@ -1,8 +1,14 @@
-import { cardPopup, closePopup } from "./utils.js";
+import { cardPopup, closePopup, editButton, closeButton } from "./utils.js";
 
 import Card from "./Card.js";
 
 import FormValidator from "./FormValidator.js";
+
+import Popup from "./Popup.js";
+
+// import PopupWithForm from "./PopupWithForm.js";
+
+// import PopupWithImage from "./PopupWithImage.js";
 
 const initialCards = [
   {
@@ -36,12 +42,11 @@ export const nameInput = document.querySelector(".popup__name");
 export const jobInput = document.querySelector(".popup__description");
 export const profileText = document.querySelector(".profile__text");
 export const profileProfession = document.querySelector(".profile__profession");
-const contenido = template.content;
 const inputCardTitle = document.querySelector(".popup__card-title");
 const inputUrl = document.querySelector(".popup__card-url");
 const cardZone = document.querySelector(".elements");
 const formCardPopup = document.querySelector(".popup__card-form");
-const popupOverlay = document.querySelectorAll(".popup__overlay");
+export const popupOverlay = document.querySelectorAll(".popup__overlay");
 
 initialCards.forEach(function (element) {
   const newCard = new Card(element.name, element.link).generateCard();
@@ -60,11 +65,11 @@ formCardPopup.addEventListener("submit", function (evt) {
   closePopup(cardPopup);
 });
 
-popupOverlay.forEach((overlay) => {
-  overlay.addEventListener("click", () => {
-    overlay.parentNode.classList.remove("popup__open");
-  });
-});
+// popupOverlay.forEach((overlay) => {
+//   overlay.addEventListener("click", () => {
+//     overlay.parentNode.classList.remove("popup__open");
+//   });
+// });
 
 const formProfile = new FormValidator(".popup__profile-form", {
   formSelector: ".popup__form",
@@ -86,3 +91,15 @@ const formCard = new FormValidator(".popup__card-form", {
 
 formProfile.enableValidation();
 formCard.enableValidation();
+
+const popupProfile = new Popup("#popup-profile");
+
+popupProfile.setEventListeners();
+
+// editButton.addEventListener("click", () => {
+//   popupProfile.open();
+// });
+
+// closeButton.addEventListener("click", () => {
+//   popupProfile.close();
+// });

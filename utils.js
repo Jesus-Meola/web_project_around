@@ -5,9 +5,9 @@ import {
   profileProfession,
 } from "./index.js";
 
-const editButton = document.querySelector(".profile__edit-button");
+export const editButton = document.querySelector(".profile__edit-button");
 const miPopup = document.querySelector(".popup");
-const closeButton = document.querySelector(".popup__button-closed");
+export const closeButton = document.querySelector(".popup__button-closed");
 const saveButton = document.querySelector(".popup__button-create");
 const buttonAddCard = document.querySelector(".profile__add-button");
 export const cardPopup = document.querySelector("#popup-card");
@@ -17,13 +17,13 @@ const buttonClosePopupImage = document.querySelector(
   ".popup__image-button-closed"
 );
 
-editButton.addEventListener("click", () => {
-  openPopup(miPopup);
-});
+// editButton.addEventListener("click", () => {
+//   openPopup(miPopup);
+// });
 
-closeButton.addEventListener("click", () => {
-  closePopup(miPopup);
-});
+// closeButton.addEventListener("click", () => {
+//   closePopup(miPopup);
+// });
 
 saveButton.addEventListener("click", saveChanges);
 
