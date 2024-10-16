@@ -1,4 +1,4 @@
-import { cardPopup, closePopup, editButton, closeButton } from "./utils.js";
+import { cardPopup, closePopup, editButton } from "./utils.js";
 
 import Card from "./Card.js";
 

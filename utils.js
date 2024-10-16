@@ -54,12 +54,12 @@ export function closePopup(popup) {
   }
 }
 
-// export function handleEscapeKey(evt) {
-//   if (evt.key === "Escape") {
-//     const openPopups = document.querySelectorAll(".popup__open");
-//     openPopups.forEach((popup) => closePopup(popup));
-//   }
-// }
+export function handleEscapeKey(evt) {
+  if (evt.key === "Escape") {
+    const openPopups = document.querySelectorAll(".popup__open");
+    openPopups.forEach((popup) => closePopup(popup));
+  }
+}
 
 buttonClosePopupImage.addEventListener("click", () => {
   closePopup(popupImage);

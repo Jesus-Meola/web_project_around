@@ -1,4 +1,3 @@
-import { editButton, closeButton } from "./utils.js";
 import { popupOverlay } from "./index.js";
 
 export default class Popup {
