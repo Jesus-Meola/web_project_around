@@ -18,12 +18,13 @@ export default class Popup {
     }
   }
 
-  _handleEscClose(evt) {
+  _handleEscClose = (evt) => {
+    //console.log(this);
     if (evt.key === "Escape") {
       const openPopups = document.querySelectorAll(".popup__open");
       openPopups.forEach((popup) => this.close(popup));
     }
-  }
+  };
 
   setEventListeners() {
     editButton.addEventListener("click", () => {
