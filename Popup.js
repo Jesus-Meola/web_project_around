@@ -19,7 +19,6 @@ export default class Popup {
   }
 
   _handleEscClose = (evt) => {
-    //console.log(this);
     if (evt.key === "Escape") {
       const openPopups = document.querySelectorAll(".popup__open");
       openPopups.forEach((popup) => this.close(popup));
@@ -27,13 +26,11 @@ export default class Popup {
   };
 
   setEventListeners() {
-    editButton.addEventListener("click", () => {
-      this.open();
-    });
-
-    closeButton.addEventListener("click", () => {
-      this.close();
-    });
+    this._popupElement
+      .querySelector(".popup__button-closed")
+      .addEventListener("click", () => {
+        this.close();
+      });
 
     popupOverlay.forEach((overlay) => {
       overlay.addEventListener("click", () => {

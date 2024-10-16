@@ -65,12 +65,6 @@ formCardPopup.addEventListener("submit", function (evt) {
   closePopup(cardPopup);
 });
 
-// popupOverlay.forEach((overlay) => {
-//   overlay.addEventListener("click", () => {
-//     overlay.parentNode.classList.remove("popup__open");
-//   });
-// });
-
 const formProfile = new FormValidator(".popup__profile-form", {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
@@ -96,10 +90,6 @@ const popupProfile = new Popup("#popup-profile");
 
 popupProfile.setEventListeners();
 
-// editButton.addEventListener("click", () => {
-//   popupProfile.open();
-// });
-
-// closeButton.addEventListener("click", () => {
-//   popupProfile.close();
-// });
+editButton.addEventListener("click", () => {
+  popupProfile.open();
+});
