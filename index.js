@@ -1,12 +1,18 @@
-import { cardPopup, editButton, buttonAddCard } from "./utils.js";
-
 import Card from "./components/Card.js";
 
 import FormValidator from "./components/FormValidator.js";
 
 import PopupWithForm from "./components/PopupWithForm.js";
 
-// import PopupWithImage from "./PopupWithImage.js";
+import PopupWithImage from "./components/PopupWithImage.js";
+
+export const template = document.querySelector(".template-card");
+export const popupOverlay = document.querySelectorAll(".popup__overlay");
+const profileText = document.querySelector(".profile__text");
+const profileProfession = document.querySelector(".profile__profession");
+const cardZone = document.querySelector(".elements");
+const editButton = document.querySelector(".profile__edit-button");
+const buttonAddCard = document.querySelector(".profile__add-button");
 
 const initialCards = [
   {
@@ -35,32 +41,17 @@ const initialCards = [
   },
 ];
 
-export const template = document.querySelector(".template-card");
-export const nameInput = document.querySelector(".popup__name");
-export const jobInput = document.querySelector(".popup__description");
-export const profileText = document.querySelector(".profile__text");
-export const profileProfession = document.querySelector(".profile__profession");
-const inputCardTitle = document.querySelector(".popup__card-title");
-const inputUrl = document.querySelector(".popup__card-url");
-const cardZone = document.querySelector(".elements");
-const formCardPopup = document.querySelector(".popup__card-form");
-export const popupOverlay = document.querySelectorAll(".popup__overlay");
+const popupImage = new PopupWithImage("#popup-image");
+
+popupImage.setEventListeners();
 
 initialCards.forEach(function (element) {
-  const newCard = new Card(element.name, element.link).generateCard();
-  cardZone.append(newCard);
-});
-
-formCardPopup.addEventListener("submit", function (evt) {
-  evt.preventDefault();
-
-  const newCardToAdd = new Card(
-    inputCardTitle.value,
-    inputUrl.value
+  const newCard = new Card(
+    element.name,
+    element.link,
+    popupImage.open
   ).generateCard();
-  cardZone.prepend(newCardToAdd);
-
-  close(cardPopup);
+  cardZone.append(newCard);
 });
 
 const formProfile = new FormValidator(".popup__profile-form", {
@@ -91,6 +82,7 @@ const popupProfile = new PopupWithForm("#popup-profile", (inputs) => {
 
 const popupCards = new PopupWithForm("#popup-card", (inputs) => {
   const newCard = new Card(inputs.title, inputs.link).generateCard();
+  cardZone.prepend(newCard);
 });
 
 popupProfile.setEventListeners();

@@ -1,11 +1,11 @@
 import { template } from "../index.js";
-import { popupImage, handleEscapeKey } from "../utils.js";
 
 export default class Card {
-  constructor(name, link) {
+  constructor(name, link, handleOpen) {
     this._name = name;
     this._link = link;
     this._card = this.getTemplate();
+    this._handleOpen = handleOpen;
   }
 
   getTemplate() {
@@ -25,18 +25,6 @@ export default class Card {
   handleLike() {
     this._buttonLike.classList.toggle("elements__image-like_active");
   }
-  openPopup() {
-    popupImage.classList.add("popup__open");
-  }
-
-  handleImage() {
-    this.openPopup();
-    this._popupPhoto = popupImage.querySelector(".popup__image-photo");
-    this._popupTitle = popupImage.querySelector(".popup__image-name");
-
-    this._popupPhoto.src = this._link;
-    this._popupTitle.textContent = this._name;
-  }
 
   setEventListeners() {
     this._buttonDeleteCard.addEventListener("click", () => {
@@ -46,8 +34,7 @@ export default class Card {
       this.handleLike();
     });
     this._cardImage.addEventListener("click", () => {
-      document.addEventListener("keydown", handleEscapeKey);
-      this.handleImage(); // popupWithImage
+      this._handleOpen(this._name, this._link);
     });
   }
 
