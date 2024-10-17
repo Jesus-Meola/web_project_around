@@ -1,5 +1,5 @@
-import { template } from "./index.js";
-import { handleEscapeKey, popupImage } from "./utils.js";
+import { template } from "../index.js";
+import { popupImage, handleEscapeKey } from "../utils.js";
 
 export default class Card {
   constructor(name, link) {
@@ -47,7 +47,7 @@ export default class Card {
     });
     this._cardImage.addEventListener("click", () => {
       document.addEventListener("keydown", handleEscapeKey);
-      this.handleImage();
+      this.handleImage(); // popupWithImage
     });
   }
 

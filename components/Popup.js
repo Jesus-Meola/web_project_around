@@ -1,4 +1,4 @@
-import { popupOverlay } from "./index.js";
+import { popupOverlay } from "../index.js";
 
 export default class Popup {
   constructor(popupSelector) {
@@ -28,6 +28,7 @@ export default class Popup {
     this._popupElement
       .querySelector(".popup__button-closed")
       .addEventListener("click", () => {
+        console.log(this);
         this.close();
       });
 
@@ -38,13 +39,3 @@ export default class Popup {
     });
   }
 }
-
-// const popupProfile = new Popup("#popup-profile");
-
-// editButton.addEventListener("click", () => {
-//   popupProfile.open();
-// });
-
-// closeButton.addEventListener("click", () => {
-//   popupProfile.close();
-// });

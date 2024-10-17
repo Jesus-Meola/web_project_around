@@ -1,12 +1,10 @@
-import { cardPopup, closePopup, editButton } from "./utils.js";
+import { cardPopup, editButton, buttonAddCard } from "./utils.js";
 
-import Card from "./Card.js";
+import Card from "./components/Card.js";
 
-import FormValidator from "./FormValidator.js";
+import FormValidator from "./components/FormValidator.js";
 
-import Popup from "./Popup.js";
-
-// import PopupWithForm from "./PopupWithForm.js";
+import PopupWithForm from "./components/PopupWithForm.js";
 
 // import PopupWithImage from "./PopupWithImage.js";
 
@@ -62,7 +60,7 @@ formCardPopup.addEventListener("submit", function (evt) {
   ).generateCard();
   cardZone.prepend(newCardToAdd);
 
-  closePopup(cardPopup);
+  close(cardPopup);
 });
 
 const formProfile = new FormValidator(".popup__profile-form", {
@@ -86,10 +84,22 @@ const formCard = new FormValidator(".popup__card-form", {
 formProfile.enableValidation();
 formCard.enableValidation();
 
-const popupProfile = new Popup("#popup-profile");
+const popupProfile = new PopupWithForm("#popup-profile", (inputs) => {
+  profileText.textContent = inputs.name;
+  profileProfession.textContent = inputs.description;
+});
+
+const popupCards = new PopupWithForm("#popup-card", (inputs) => {
+  const newCard = new Card(inputs.title, inputs.link).generateCard();
+});
 
 popupProfile.setEventListeners();
+popupCards.setEventListeners();
 
 editButton.addEventListener("click", () => {
   popupProfile.open();
+});
+
+buttonAddCard.addEventListener("click", () => {
+  popupCards.open();
 });
