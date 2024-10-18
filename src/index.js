@@ -6,6 +6,10 @@ import PopupWithForm from "./components/PopupWithForm.js";
 
 import PopupWithImage from "./components/PopupWithImage.js";
 
+import Section from "./components/Section.js";
+
+import UserInfo from "./components/UserInfo.js";
+
 export const template = document.querySelector(".template-card");
 export const popupOverlay = document.querySelectorAll(".popup__overlay");
 const profileText = document.querySelector(".profile__text");
@@ -45,15 +49,6 @@ const popupImage = new PopupWithImage("#popup-image");
 
 popupImage.setEventListeners();
 
-initialCards.forEach(function (element) {
-  const newCard = new Card(
-    element.name,
-    element.link,
-    popupImage.open
-  ).generateCard();
-  cardZone.append(newCard);
-});
-
 const formProfile = new FormValidator(".popup__profile-form", {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
@@ -75,13 +70,18 @@ const formCard = new FormValidator(".popup__card-form", {
 formProfile.enableValidation();
 formCard.enableValidation();
 
+const User = new UserInfo(".profile__text", ".profile__profession");
+
 const popupProfile = new PopupWithForm("#popup-profile", (inputs) => {
-  profileText.textContent = inputs.name;
-  profileProfession.textContent = inputs.description;
+  User.setUserInfo(inputs.name, inputs.description);
 });
 
 const popupCards = new PopupWithForm("#popup-card", (inputs) => {
-  const newCard = new Card(inputs.title, inputs.link).generateCard();
+  const newCard = new Card(
+    inputs.title,
+    inputs.link,
+    popupImage.open
+  ).generateCard();
   cardZone.prepend(newCard);
 });
 
@@ -95,3 +95,20 @@ editButton.addEventListener("click", () => {
 buttonAddCard.addEventListener("click", () => {
   popupCards.open();
 });
+
+const showCards = new Section(
+  {
+    items: initialCards,
+    renderer: (item) => {
+      const card = new Card(
+        item.name,
+        item.link,
+        popupImage.open
+      ).generateCard();
+      showCards.addItem(card);
+    },
+  },
+  ".elements"
+);
+
+showCards.renderer();
