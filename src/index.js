@@ -14,8 +14,6 @@ import UserInfo from "./components/UserInfo.js";
 
 export const template = document.querySelector(".template-card");
 export const popupOverlay = document.querySelectorAll(".popup__overlay");
-const profileText = document.querySelector(".profile__text");
-const profileProfession = document.querySelector(".profile__profession");
 const cardZone = document.querySelector(".elements");
 const editButton = document.querySelector(".profile__edit-button");
 const buttonAddCard = document.querySelector(".profile__add-button");
