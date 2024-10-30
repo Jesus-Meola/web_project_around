@@ -70,7 +70,11 @@ const formCard = new FormValidator(".popup__card-form", {
 formProfile.enableValidation();
 formCard.enableValidation();
 
-const User = new UserInfo(".profile__text", ".profile__profession");
+const User = new UserInfo(
+  ".profile__text",
+  ".profile__profession",
+  ".profile__image"
+);
 
 const popupProfile = new PopupWithForm("#popup-profile", (inputs) => {
   User.setUserInfo(inputs.name, inputs.description);
@@ -112,3 +116,20 @@ const showCards = new Section(
 );
 
 showCards.renderer();
+
+fetch("https://around.nomoreparties.co/v1/web-es-cohort-17/users/me", {
+  headers: {
+    authorization: "d453e3ac-8a06-4028-85b5-cd9f1421891b",
+  },
+})
+  .then((res) => res.json())
+  .then((result) => {
+    User.setUserInfo(result.name, result.about);
+    User.setAvatar(result.avatar);
+  });
+
+fetch("https://around.nomoreparties.co/v1/web-es-cohort-17/cards", {
+  headers: {
+    authorization: "d453e3ac-8a06-4028-85b5-cd9f1421891b",
+  },
+});
