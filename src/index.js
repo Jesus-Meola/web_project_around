@@ -12,6 +12,8 @@ import Section from "./components/Section.js";
 
 import UserInfo from "./components/UserInfo.js";
 
+import api from "./components/Api.js";
+
 export const template = document.querySelector(".template-card");
 export const popupOverlay = document.querySelectorAll(".popup__overlay");
 const cardZone = document.querySelector(".elements");
@@ -100,36 +102,44 @@ buttonAddCard.addEventListener("click", () => {
   popupCards.open();
 });
 
-const showCards = new Section(
-  {
-    items: initialCards,
-    renderer: (item) => {
-      const card = new Card(
-        item.name,
-        item.link,
-        popupImage.open
-      ).generateCard();
-      showCards.addItem(card);
+// const showCards = new Section(
+//   {
+//     items: initialCards,
+//     renderer: (item) => {
+//       const card = new Card(
+//         item.name,
+//         item.link,
+//         popupImage.open
+//       ).generateCard();
+//       showCards.addItem(card);
+//     },
+//   },
+//   ".elements"
+// );
+
+// showCards.renderer();
+
+let showCards = null;
+
+api.getUserInfo().then((result) => {
+  User.setUserInfo(result.name, result.about);
+  User.setAvatar(result.avatar);
+});
+
+api.getCards().then((cards) => {
+  showCards = new Section(
+    {
+      items: cards,
+      renderer: (item) => {
+        const card = new Card(
+          item.name,
+          item.link,
+          popupImage.open
+        ).generateCard();
+        showCards.addItem(card);
+      },
     },
-  },
-  ".elements"
-);
-
-showCards.renderer();
-
-fetch("https://around.nomoreparties.co/v1/web-es-cohort-17/users/me", {
-  headers: {
-    authorization: "d453e3ac-8a06-4028-85b5-cd9f1421891b",
-  },
-})
-  .then((res) => res.json())
-  .then((result) => {
-    User.setUserInfo(result.name, result.about);
-    User.setAvatar(result.avatar);
-  });
-
-fetch("https://around.nomoreparties.co/v1/web-es-cohort-17/cards", {
-  headers: {
-    authorization: "d453e3ac-8a06-4028-85b5-cd9f1421891b",
-  },
+    ".elements"
+  );
+  showCards.renderer();
 });
