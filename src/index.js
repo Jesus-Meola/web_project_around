@@ -20,32 +20,32 @@ const cardZone = document.querySelector(".elements");
 const editButton = document.querySelector(".profile__edit-button");
 const buttonAddCard = document.querySelector(".profile__add-button");
 
-const initialCards = [
-  {
-    name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
-  },
-];
+// const initialCards = [
+//   {
+//     name: "Valle de Yosemite",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
+//   },
+//   {
+//     name: "Lago Louise",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
+//   },
+//   {
+//     name: "Montañas Calvas",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
+//   },
+//   {
+//     name: "Latemar",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
+//   },
+//   {
+//     name: "Parque Nacional de la Vanoise",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
+//   },
+//   {
+//     name: "Lago di Braies",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
+//   },
+// ];
 
 const popupImage = new PopupWithImage("#popup-image");
 
@@ -72,24 +72,38 @@ const formCard = new FormValidator(".popup__card-form", {
 formProfile.enableValidation();
 formCard.enableValidation();
 
-const User = new UserInfo(
+const user = new UserInfo(
   ".profile__text",
   ".profile__profession",
   ".profile__image"
 );
 
 const popupProfile = new PopupWithForm("#popup-profile", (inputs) => {
-  User.setUserInfo(inputs.name, inputs.description);
+  api.editUser(inputs.name, inputs.description).then((data) => {
+    user.setUserInfo(data.name, data.about, data.avatar);
+  });
 });
+// User.setUserInfo(inputs.name, inputs.description);
 
 const popupCards = new PopupWithForm("#popup-card", (inputs) => {
-  const newCard = new Card(
-    inputs.title,
-    inputs.link,
-    popupImage.open
-  ).generateCard();
-  cardZone.prepend(newCard);
+  api.saveCard(inputs.title, inputs.link).then((card) => {
+    const newCard = new Card(
+      card.name,
+      card.link,
+      popupImage.open
+    ).generateCard();
+    cardZone.prepend(newCard);
+  });
 });
+
+// const popupCards = new PopupWithForm("#popup-card", (inputs) => {
+//   const newCard = new Card(
+//     inputs.title,
+//     inputs.link,
+//     popupImage.open
+//   ).generateCard();
+//   cardZone.prepend(newCard);
+// });
 
 popupProfile.setEventListeners();
 popupCards.setEventListeners();
@@ -122,8 +136,8 @@ buttonAddCard.addEventListener("click", () => {
 let showCards = null;
 
 api.getUserInfo().then((result) => {
-  User.setUserInfo(result.name, result.about);
-  User.setAvatar(result.avatar);
+  user.setUserInfo(result.name, result.about);
+  user.setAvatar(result.avatar);
 });
 
 api.getCards().then((cards) => {

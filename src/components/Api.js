@@ -28,8 +28,22 @@ class Api {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        title: name,
-        link: link,
+        name,
+        link,
+      }),
+    }).then((res) => res.json());
+  }
+
+  editUser(name, about) {
+    return fetch(`${this.url}/users/me`, {
+      method: "PATCH",
+      headers: {
+        authorization: this.token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        about,
       }),
     }).then((res) => res.json());
   }
