@@ -87,11 +87,7 @@ const popupProfile = new PopupWithForm("#popup-profile", (inputs) => {
 
 const popupCards = new PopupWithForm("#popup-card", (inputs) => {
   api.saveCard(inputs.title, inputs.link).then((card) => {
-    const newCard = new Card(
-      card.name,
-      card.link,
-      popupImage.open
-    ).generateCard();
+    const newCard = new Card(card, popupImage.open).generateCard();
     cardZone.prepend(newCard);
   });
 });
@@ -145,11 +141,7 @@ api.getCards().then((cards) => {
     {
       items: cards,
       renderer: (item) => {
-        const card = new Card(
-          item.name,
-          item.link,
-          popupImage.open
-        ).generateCard();
+        const card = new Card(item, popupImage.open).generateCard();
         showCards.addItem(card);
       },
     },

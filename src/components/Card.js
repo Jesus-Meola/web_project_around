@@ -1,11 +1,25 @@
 import { template } from "../index.js";
 
 export default class Card {
-  constructor(name, link, handleCardClick) {
-    this._name = name;
-    this._link = link;
-    this._card = this.getTemplate();
+  constructor(
+    data,
+    handleCardClick,
+    handleLikeCard,
+    handleDislikeCard,
+    handleDeleteCard,
+    usedId
+  ) {
+    this._name = data.name;
+    this._link = data.link;
+    this._id = data.id;
+    this._likes = data.likes;
+    this.owner = data.owner;
     this._handleCardClick = handleCardClick;
+    this._handleLikeCard = handleLikeCard;
+    this._handleDislikeCard = handleDislikeCard;
+    this._handleDeleteCard = handleDeleteCard;
+    this._usedId = usedId;
+    this._card = this.getTemplate();
   }
 
   getTemplate() {
