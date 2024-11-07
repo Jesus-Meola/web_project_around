@@ -83,7 +83,6 @@ const popupProfile = new PopupWithForm("#popup-profile", (inputs) => {
     user.setUserInfo(data.name, data.about, data.avatar);
   });
 });
-// User.setUserInfo(inputs.name, inputs.description);
 
 const popupCards = new PopupWithForm("#popup-card", (inputs) => {
   api.saveCard(inputs.title, inputs.link).then((card) => {
@@ -91,15 +90,6 @@ const popupCards = new PopupWithForm("#popup-card", (inputs) => {
     cardZone.prepend(newCard);
   });
 });
-
-// const popupCards = new PopupWithForm("#popup-card", (inputs) => {
-//   const newCard = new Card(
-//     inputs.title,
-//     inputs.link,
-//     popupImage.open
-//   ).generateCard();
-//   cardZone.prepend(newCard);
-// });
 
 popupProfile.setEventListeners();
 popupCards.setEventListeners();
@@ -112,28 +102,10 @@ buttonAddCard.addEventListener("click", () => {
   popupCards.open();
 });
 
-// const showCards = new Section(
-//   {
-//     items: initialCards,
-//     renderer: (item) => {
-//       const card = new Card(
-//         item.name,
-//         item.link,
-//         popupImage.open
-//       ).generateCard();
-//       showCards.addItem(card);
-//     },
-//   },
-//   ".elements"
-// );
-
-// showCards.renderer();
-
 let showCards = null;
 
 api.getUserInfo().then((result) => {
-  user.setUserInfo(result.name, result.about);
-  user.setAvatar(result.avatar);
+  user.setUserInfo(result.name, result.about, result.avatar);
 });
 
 api.getCards().then((cards) => {

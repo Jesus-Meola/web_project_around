@@ -9,7 +9,9 @@ class Api {
       headers: {
         authorization: this.token,
       },
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
   }
 
   getCards() {
@@ -17,7 +19,9 @@ class Api {
       headers: {
         authorization: this.token,
       },
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
   }
 
   saveCard(name, link) {
@@ -31,7 +35,9 @@ class Api {
         name,
         link,
       }),
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
   }
 
   editUser(name, about) {
@@ -45,7 +51,9 @@ class Api {
         name,
         about,
       }),
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
   }
 }
 
