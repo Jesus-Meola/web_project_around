@@ -153,12 +153,43 @@
 
         <div class="popup" id="popup-delete">
           <div class="popup__overlay"></div>
-          <h2 class="popup__title">¿Estás seguro?</h2>
-          <button class="popup__button-delete" type="button">Sí</button>>
+          <div class="popup__form">
+            <img
+              src="<%=require('./images/CloseIcon.png')%>"
+              alt="Boton de Cierre"
+              class="popup__button-closed"
+            />
+            <h3 class="popup__header">¿Estás seguro?</h3>
+            <button class="popup__button popup__button-create" type="button">
+              Sí
+            </button>
+          </div>
         </div>
 
         <div class="popup" id="popup-avatar">
           <div class="popup__overlay"></div>
+          <form class="popup__form popup__profile-form">
+            <img
+              src="<%=require('./images/CloseIcon.png')%>"
+              alt="Boton de Cierre"
+              class="popup__button-closed"
+            />
+            <h3 class="popup__header">Cambiar foto de perfil</h3>
+            <input
+              type="url"
+              id="input-url"
+              class="popup__card-url popup__input"
+              name="link"
+              minlength="2"
+              maxlength="40"
+              placeholder="https://somewebsite.com/someimage.jpg"
+              required
+            />
+            <span class="popup__error-visible input-name-error"></span>
+            <button type="submit" class="popup__button-create popup__button">
+              Guardar
+            </button>
+          </form>
         </div>
       </main>
       <footer class="footer">
