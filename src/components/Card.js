@@ -3,22 +3,22 @@ import { template } from "../index.js";
 export default class Card {
   constructor(
     data,
+    currentUser,
     handleCardClick,
     handleLikeCard,
     handleDislikeCard,
-    handleDeleteCard,
-    usedId
+    handleDeleteCard
   ) {
     this._name = data.name;
     this._link = data.link;
-    this._id = data.id;
+    this._id = data._id;
     this._likes = data.likes;
     this.owner = data.owner;
+    this.currentUser = currentUser;
     this._handleCardClick = handleCardClick;
     this._handleLikeCard = handleLikeCard;
     this._handleDislikeCard = handleDislikeCard;
     this._handleDeleteCard = handleDeleteCard;
-    this._usedId = usedId;
     this._card = this.getTemplate();
   }
 
@@ -34,6 +34,15 @@ export default class Card {
     this._cardImage.src = this._link;
     this._cardTitle.textContent = this._name;
     this._cardImage.alt = this._name;
+    this._likeCounter = this._card.querySelector(
+      ".elements__image-like-counter"
+    );
+    if (this._likeCounter) {
+      this._likeCounter.textContent = this._likes.length;
+    }
+    if (this.owner._id !== this.currentUser) {
+      this._buttonDeleteCard.style.display = "none";
+    }
   }
 
   handleLike() {
