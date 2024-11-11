@@ -21,7 +21,6 @@ export default class Card {
     this._handleDeleteCard = handleDeleteCard;
     this._card = this.getTemplate();
   }
-
   getTemplate() {
     return template.cloneNode(true).content.querySelector(".elements__card");
   }
@@ -34,14 +33,11 @@ export default class Card {
     this._cardImage.src = this._link;
     this._cardTitle.textContent = this._name;
     this._cardImage.alt = this._name;
-    this._likeCounter = this._card.querySelector(
-      ".elements__image-like-counter"
-    );
-    if (this._likeCounter) {
-      this._likeCounter.textContent = this._likes.length;
-    }
     if (this.owner._id !== this.currentUser) {
       this._buttonDeleteCard.style.display = "none";
+    }
+    if (this._likes.some((like) => like._id === this.currentUser)) {
+      this._buttonLike.classList.add("elements__image-like_active");
     }
   }
 
@@ -59,6 +55,16 @@ export default class Card {
     this._cardImage.addEventListener("click", () => {
       this._handleCardClick(this._name, this._link);
     });
+  }
+
+  updateLikes(likes) {
+    this._likes = likes;
+    console.log("Actualizando likes", likes);
+    this._likeCounter.textContent = this._likes.length;
+    this._buttonLike.classList.toggle(
+      "elements__image-like_active",
+      this._likes.some((like) => like._id === this.currentUser)
+    );
   }
 
   generateCard() {

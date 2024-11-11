@@ -84,9 +84,15 @@ const popupProfile = new PopupWithForm("#popup-profile", (inputs) => {
   });
 });
 
+let currentUserid = null;
+
 const popupCards = new PopupWithForm("#popup-card", (inputs) => {
   api.saveCard(inputs.title, inputs.link).then((card) => {
-    const newCard = new Card(card, popupImage.open).generateCard();
+    const newCard = new Card(
+      card,
+      currentUserid,
+      popupImage.open
+    ).generateCard();
     cardZone.prepend(newCard);
   });
 });
@@ -106,18 +112,22 @@ let showCards = null;
 
 api.getUserInfo().then((result) => {
   user.setUserInfo(result.name, result.about, result.avatar);
-});
-
-api.getCards().then((cards) => {
-  showCards = new Section(
-    {
-      items: cards,
-      renderer: (item) => {
-        const card = new Card(item, popupImage.open).generateCard();
-        showCards.addItem(card);
+  currentUserid = result._id;
+  api.getCards().then((cards) => {
+    showCards = new Section(
+      {
+        items: cards,
+        renderer: (item) => {
+          const card = new Card(
+            item,
+            result._id,
+            popupImage.open
+          ).generateCard();
+          showCards.addItem(card);
+        },
       },
-    },
-    ".elements"
-  );
-  showCards.renderer();
+      ".elements"
+    );
+    showCards.renderer();
+  });
 });

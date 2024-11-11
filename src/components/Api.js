@@ -57,6 +57,17 @@ class Api {
   }
 }
 
+// isLiked = (likes, id) => {
+//   return fetch(`${this.url}/cards/${id}/likes`, {
+//     method: "GET",
+//     headers: {
+//       authorization: this.token,
+//     },
+//   })
+//     .then((res) => res.json())
+//     .catch((err) => console.log(err));
+// };
+
 const api = new Api(
   "https://around.nomoreparties.co/v1/web-es-cohort-17",
   "d453e3ac-8a06-4028-85b5-cd9f1421891b"

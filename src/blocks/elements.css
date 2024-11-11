@@ -70,13 +70,6 @@
   opacity: 50%;
 }
 
-.elements__image-like-counter {
-  position: absolute;
-  right: 28px;
-  margin-bottom: 10px;
-  font-size: 15px;
-}
-
 .elements__image-like_active {
   background-image: url(../images/Union.png);
 }
