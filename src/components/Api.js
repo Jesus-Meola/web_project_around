@@ -1,6 +1,6 @@
 class Api {
   constructor(url, token) {
-    this.url = url;
+    this.baseUrl = url;
     this.token = token;
   }
 
@@ -12,19 +12,19 @@ class Api {
   }
 
   getUserInfo() {
-    return fetch(`${this.url}/users/me`, {
+    return fetch(`${this.baseUrl}/users/me`, {
       headers: this.token,
     }).then(this._checkResponse);
   }
 
   getCards() {
-    return fetch(`${this.url}/cards`, {
+    return fetch(`${this.baseUrl}/cards`, {
       headers: this.token,
     }).then(this._checkResponse);
   }
 
   saveCard(name, link) {
-    return fetch(`${this.url}/cards`, {
+    return fetch(`${this.baseUrl}/cards`, {
       method: "POST",
       headers: this.token,
       body: JSON.stringify({
@@ -35,13 +35,34 @@ class Api {
   }
 
   editUser(name, about) {
-    return fetch(`${this.url}/users/me`, {
+    return fetch(`${this.baseUrl}/users/me`, {
       method: "PATCH",
       headers: this.token,
       body: JSON.stringify({
         name,
         about,
       }),
+    }).then(this._checkResponse);
+  }
+
+  likeCard(cardId) {
+    return fetch(`${this.url}/cards/${cardId}/likes`, {
+      method: "PUT",
+      headers: this.token,
+    }).then(this._checkResponse);
+  }
+
+  deleteLikeCard(cardId) {
+    return fetch(`${this.url}/cards/${cardId}/likes`, {
+      method: "DELETE",
+      headers: this.token,
+    }).then(this._checkResponse);
+  }
+
+  deleteCard(cardId) {
+    return fetch(`${this.baseUrl}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: this.token,
     }).then(this._checkResponse);
   }
 }

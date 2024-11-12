@@ -1,6 +1,6 @@
 import Popup from "./Popup.js";
 
-export default class PopupWithConfirmation {
+export default class PopupWithConfirmation extends Popup {
   constructor(popupSelector) {
     super(popupSelector);
   }
@@ -11,5 +11,10 @@ export default class PopupWithConfirmation {
 
   setEventListeners() {
     super.setEventListeners();
+    this.popupElement
+      .querySelector(".popup__button")
+      .addEventListener("click", () => {
+        this._action();
+      });
   }
 }
