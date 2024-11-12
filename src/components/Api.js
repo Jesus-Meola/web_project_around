@@ -4,73 +4,51 @@ class Api {
     this.token = token;
   }
 
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Èrror: ${res.status}`);
+  }
+
   getUserInfo() {
     return fetch(`${this.url}/users/me`, {
-      headers: {
-        authorization: this.token,
-      },
-    })
-      .then((res) => res.json())
-      .catch((err) => console.log(err));
+      headers: this.token,
+    }).then(this._checkResponse);
   }
 
   getCards() {
     return fetch(`${this.url}/cards`, {
-      headers: {
-        authorization: this.token,
-      },
-    })
-      .then((res) => res.json())
-      .catch((err) => console.log(err));
+      headers: this.token,
+    }).then(this._checkResponse);
   }
 
   saveCard(name, link) {
     return fetch(`${this.url}/cards`, {
       method: "POST",
-      headers: {
-        authorization: this.token,
-        "Content-Type": "application/json",
-      },
+      headers: this.token,
       body: JSON.stringify({
         name,
         link,
       }),
-    })
-      .then((res) => res.json())
-      .catch((err) => console.log(err));
+    }).then(this._checkResponse);
   }
 
   editUser(name, about) {
     return fetch(`${this.url}/users/me`, {
       method: "PATCH",
-      headers: {
-        authorization: this.token,
-        "Content-Type": "application/json",
-      },
+      headers: this.token,
       body: JSON.stringify({
         name,
         about,
       }),
-    })
-      .then((res) => res.json())
-      .catch((err) => console.log(err));
+    }).then(this._checkResponse);
   }
 }
 
-// isLiked = (likes, id) => {
-//   return fetch(`${this.url}/cards/${id}/likes`, {
-//     method: "GET",
-//     headers: {
-//       authorization: this.token,
-//     },
-//   })
-//     .then((res) => res.json())
-//     .catch((err) => console.log(err));
-// };
-
-const api = new Api(
-  "https://around.nomoreparties.co/v1/web-es-cohort-17",
-  "d453e3ac-8a06-4028-85b5-cd9f1421891b"
-);
+const api = new Api("https://around.nomoreparties.co/v1/web-es-cohort-17", {
+  authorization: "d453e3ac-8a06-4028-85b5-cd9f1421891b",
+  "Content-Type": "application/json",
+});
 
 export default api;

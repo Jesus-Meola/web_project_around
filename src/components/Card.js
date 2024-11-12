@@ -57,16 +57,6 @@ export default class Card {
     });
   }
 
-  updateLikes(likes) {
-    this._likes = likes;
-    console.log("Actualizando likes", likes);
-    this._likeCounter.textContent = this._likes.length;
-    this._buttonLike.classList.toggle(
-      "elements__image-like_active",
-      this._likes.some((like) => like._id === this.currentUser)
-    );
-  }
-
   generateCard() {
     this.setProperties();
     this.setEventListeners();
