@@ -14,6 +14,8 @@ import UserInfo from "./components/UserInfo.js";
 
 import api from "./components/Api.js";
 
+import PopupWithConfirmation from "./components/PopupWithConfirmation.js";
+
 export const template = document.querySelector(".template-card");
 export const popupOverlay = document.querySelectorAll(".popup__overlay");
 const cardZone = document.querySelector(".elements");

@@ -7,12 +7,34 @@
   grid-template-columns: 120px auto auto;
 }
 
+.profile__image-container {
+  position: relative;
+  height: 120px;
+}
+
 .profile__image {
   grid-area: image;
+  position: absolute;
   border-radius: 50%;
   max-width: 120px;
   aspect-ratio: 1/1;
   object-fit: cover;
+}
+
+.profile__image-edit {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.profile__image-container:hover .profile__image-edit {
+  opacity: 1;
+}
+
+.profile__image-container:hover .profile__image {
+  opacity: 50%;
 }
 
 .profile__info {
