@@ -45,30 +45,30 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  likeCard(cardId) {
-    return fetch(`${this.url}/cards/${cardId}/likes`, {
+  likeCard = (cardId) => {
+    return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
       method: "PUT",
       headers: this.token,
     }).then(this._checkResponse);
-  }
+  };
 
-  deleteLikeCard(cardId) {
-    return fetch(`${this.url}/cards/${cardId}/likes`, {
+  deleteLikeCard = (cardId) => {
+    return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
       headers: this.token,
     }).then(this._checkResponse);
-  }
+  };
 
-  deleteCard(cardId) {
+  deleteCard = (cardId) => {
     return fetch(`${this.baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this.token,
     }).then(this._checkResponse);
-  }
+  };
 }
 
-const api = new Api("https://around.nomoreparties.co/v1/web-es-cohort-17", {
-  authorization: "d453e3ac-8a06-4028-85b5-cd9f1421891b",
+const api = new Api("https://around-api.es.tripleten-services.com/v1", {
+  authorization: "84f2dc5e-6e8b-45de-9c0c-c6ce97a9b666",
   "Content-Type": "application/json",
 });
 

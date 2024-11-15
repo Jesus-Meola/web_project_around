@@ -36,12 +36,13 @@ export default class Card {
     if (this.owner._id !== this.currentUser) {
       this._buttonDeleteCard.style.display = "none";
     }
-    if (this._likes.some((like) => like._id === this.currentUser)) {
-      this._buttonLike.classList.add("elements__image-like_active");
-    }
+    // if (this._likes.some((like) => like._id === this.currentUser)) {
+    //   this._buttonLike.classList.add("elements__image-like_active");
+    // }
   }
 
   handleLike() {
+    this._handleLikeCard();
     this._buttonLike.classList.toggle("elements__image-like_active");
   }
 

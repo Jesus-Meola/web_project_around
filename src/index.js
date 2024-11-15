@@ -66,7 +66,10 @@ const popupCards = new PopupWithForm("#popup-card", (inputs) => {
     const newCard = new Card(
       card,
       currentUserid,
-      popupImage.open
+      popupImage.open,
+      api.likeCard,
+      api.deleteLikeCard,
+      api.deleteCard
     ).generateCard();
     cardZone.prepend(newCard);
   });
@@ -96,7 +99,10 @@ api.getUserInfo().then((result) => {
           const card = new Card(
             item,
             result._id,
-            popupImage.open
+            popupImage.open,
+            api.likeCard,
+            api.deleteLikeCard,
+            api.deleteCard
           ).generateCard();
           showCards.addItem(card);
         },
