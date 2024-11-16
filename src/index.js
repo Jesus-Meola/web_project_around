@@ -59,13 +59,13 @@ const popupProfile = new PopupWithForm("#popup-profile", (inputs) => {
   });
 });
 
-let currentUserid = null;
+let currentUserId = null;
 
 const popupCards = new PopupWithForm("#popup-card", (inputs) => {
   api.saveCard(inputs.title, inputs.link).then((card) => {
     const newCard = new Card(
       card,
-      currentUserid,
+      currentUserId,
       popupImage.open,
       api.likeCard,
       api.deleteLikeCard,
@@ -90,7 +90,7 @@ let showCards = null;
 
 api.getUserInfo().then((result) => {
   user.setUserInfo(result.name, result.about, result.avatar);
-  currentUserid = result._id;
+  currentUserId = result._id;
   api.getCards().then((cards) => {
     showCards = new Section(
       {

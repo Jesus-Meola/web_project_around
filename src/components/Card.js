@@ -14,7 +14,7 @@ export default class Card {
     this._id = data._id;
     this._likes = data.likes;
     this.owner = data.owner;
-    this.currentUser = currentUser;
+    this._currentUser = currentUser;
     this._handleCardClick = handleCardClick;
     this._handleLikeCard = handleLikeCard;
     this._handleDislikeCard = handleDislikeCard;
@@ -42,7 +42,12 @@ export default class Card {
   }
 
   handleLike() {
-    this._handleLikeCard();
+    this._handleLikeCard(this._id);
+    this._buttonLike.classList.toggle("elements__image-like_active");
+  }
+
+  handleDislikeCard() {
+    this._handleDislikeCard(this._id);
     this._buttonLike.classList.toggle("elements__image-like_active");
   }
 
@@ -51,7 +56,11 @@ export default class Card {
       this._card.remove();
     });
     this._buttonLike.addEventListener("click", () => {
-      this.handleLike();
+      if (this._buttonLike.classList.contains("elements__image-like_active")) {
+        this.handleDislikeCard();
+      } else {
+        this.handleLike();
+      }
     });
     this._cardImage.addEventListener("click", () => {
       this._handleCardClick(this._name, this._link);
