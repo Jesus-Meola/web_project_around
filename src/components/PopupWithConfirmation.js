@@ -11,10 +11,10 @@ export default class PopupWithConfirmation extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    // this.popupElement
-    //   .querySelector(".popup__button")
-    //   .addEventListener("click", () => {
-    //     this._action();
-    //   });
+    this._popupElement
+      .querySelector(".popup__button")
+      .addEventListener("click", () => {
+        this._action();
+      });
   }
 }

@@ -21,6 +21,14 @@ export const popupOverlay = document.querySelectorAll(".popup__overlay");
 const cardZone = document.querySelector(".elements");
 const editButton = document.querySelector(".profile__edit-button");
 const buttonAddCard = document.querySelector(".profile__add-button");
+const buttonEditAvatar = document.querySelector(".profile__image-edit");
+
+const popupAvatar = new PopupWithForm("#popup-avatar", ({ link }) => {
+  return api.editAvatar(link).then(() => {
+    user.setAvatar(link);
+    popupAvatar.close();
+  });
+});
 
 const popupImage = new PopupWithImage("#popup-image");
 
@@ -54,7 +62,7 @@ const user = new UserInfo(
 );
 
 const popupProfile = new PopupWithForm("#popup-profile", (inputs) => {
-  api.editUser(inputs.name, inputs.description).then((data) => {
+  return api.editUser(inputs.name, inputs.description).then((data) => {
     user.setUserInfo(data.name, data.about, data.avatar);
   });
 });
@@ -62,14 +70,14 @@ const popupProfile = new PopupWithForm("#popup-profile", (inputs) => {
 let currentUserId = null;
 
 const popupCards = new PopupWithForm("#popup-card", (inputs) => {
-  api.saveCard(inputs.title, inputs.link).then((card) => {
+  return api.saveCard(inputs.title, inputs.link).then((card) => {
     const newCard = new Card(
       card,
       currentUserId,
       popupImage.open,
       api.likeCard,
       api.deleteLikeCard,
-      api.deleteCard
+      onDelete
     ).generateCard();
     cardZone.prepend(newCard);
   });
@@ -102,7 +110,7 @@ api.getUserInfo().then((result) => {
             popupImage.open,
             api.likeCard,
             api.deleteLikeCard,
-            api.deleteCard
+            onDelete
           ).generateCard();
           showCards.addItem(card);
         },
@@ -113,6 +121,22 @@ api.getUserInfo().then((result) => {
   });
 });
 
+const onDelete = (cardId, callback) => {
+  popupDeleteCard.open();
+  popupDeleteCard.setAction(() => {
+    api.deleteCard(cardId).then(() => {
+      callback();
+      popupDeleteCard.close();
+    });
+  });
+};
+
 const popupDeleteCard = new PopupWithConfirmation("#popup-delete");
 
 popupDeleteCard.setEventListeners();
+
+buttonEditAvatar.addEventListener("click", () => {
+  popupAvatar.open();
+});
+
+popupAvatar.setEventListeners();

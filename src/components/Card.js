@@ -53,7 +53,10 @@ export default class Card {
 
   setEventListeners() {
     this._buttonDeleteCard.addEventListener("click", () => {
-      this._card.remove();
+      //this._card.remove();
+      this._handleDeleteCard(this._id, () => {
+        this._card.remove();
+      });
     });
     this._buttonLike.addEventListener("click", () => {
       if (this._buttonLike.classList.contains("elements__image-like_active")) {
