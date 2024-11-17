@@ -36,9 +36,6 @@ export default class Card {
     if (this.owner._id !== this.currentUser) {
       this._buttonDeleteCard.style.display = "none";
     }
-    // if (this._likes.some((like) => like._id === this.currentUser)) {
-    //   this._buttonLike.classList.add("elements__image-like_active");
-    // }
   }
 
   handleLike() {
@@ -53,7 +50,6 @@ export default class Card {
 
   setEventListeners() {
     this._buttonDeleteCard.addEventListener("click", () => {
-      //this._card.remove();
       this._handleDeleteCard(this._id, () => {
         this._card.remove();
       });
