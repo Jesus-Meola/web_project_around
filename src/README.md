@@ -6,8 +6,9 @@ Se usaron las Tecnologias HTML, CSS y JavaScript.
 
 Se le hacen mejoras al Proyecto usando Programacion Orientada a Objetos (POO) creando las clases independientes para cada componente del proyecto.
 
-Mejoras para el Proyecto:
-Usar la creatividad para añadir alguna otra interaccion que haga al proyecto algo mas interesante.
+Se implementa el uso de un Servidor para la API de la base de datos donde se almacenan los datos de los usuarios y las tarjetas para el Backend.
+
+Se ha usado GitHub para el control de versiones y el manejo de la colaboracion.
 
 Github-pages:
 

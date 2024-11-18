@@ -1,4 +1,4 @@
-import { template } from "../index.js";
+import { template } from "../pages/index.js";
 
 export default class Card {
   constructor(

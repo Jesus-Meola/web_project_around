@@ -7,12 +7,13 @@
     <meta name="author" content="Jesús Meola" />
     <meta name="keywords" content="html, css, javascript" />
     <title>Viajando por el Mundo</title>
+    <link rel="stylesheet" href="./src/pages/index.css" />
   </head>
   <body>
     <div class="page">
       <header class="header">
         <img
-          src="<%=require('./images/headerlogo.svg')%>"
+          src="./src/images/headerlogo.svg"
           alt="Logo"
           class="header__logo"
         />
@@ -22,7 +23,7 @@
           <div class="profile__image-container">
             <img src="" alt="Jacques Cousteau" class="profile__image" />
             <img
-              src="<%=require('./images/Vector.png')%>"
+              src="./src/images/Vector.png"
               alt=""
               class="profile__image-edit"
             />
@@ -31,7 +32,7 @@
             <div class="profile__name">
               <p class="profile__text"></p>
               <img
-                src="<%=require('./images/editbuttonprofile.svg')%>"
+                src="./src/images/editbuttonprofile.svg"
                 alt="Button Edit"
                 class="profile__edit-button"
               />
@@ -39,7 +40,7 @@
             <p class="profile__profession"></p>
           </div>
           <img
-            src="<%=require('./images/addbuttonprofile.png')%>"
+            src="./src/images/addbuttonprofile.png"
             alt="Button Add"
             class="profile__add-button"
           />
@@ -50,14 +51,14 @@
           <article class="elements__card">
             <img src="." alt="" class="elements__image" />
             <img
-              src="<%=require('./images/papelera.svg')%>"
+              src="./src/images/papelera.svg"
               alt="Imagen Papelera"
               class="elements__image-trash"
             />
             <div class="elements__text">
               <h1 class="elements__title"></h1>
               <img
-                src="<%=require('./images/corazon.svg')%>"
+                src="./src/images/corazon.svg"
                 alt="Like"
                 class="elements__image-like"
               />
@@ -69,7 +70,7 @@
           <div class="popup__overlay"></div>
           <form class="popup__profile-form popup__form">
             <img
-              src="<%=require('./images/CloseIcon.png')%>"
+              src="./src/images/CloseIcon.png"
               alt="Boton de Cierre"
               class="popup__button-closed"
             />
@@ -108,7 +109,7 @@
           <div class="popup__overlay"></div>
           <form class="popup__card-form popup__form">
             <img
-              src="<%=require('./images/CloseIcon.png')%>"
+              src="./src/images/CloseIcon.png"
               alt="Boton de Cierre"
               class="popup__card-button-closed popup__button-closed"
             />
@@ -149,7 +150,7 @@
           <div class="popup__overlay"></div>
           <div class="popup__image-content">
             <img
-              src="<%=require('./images/CloseIcon.png')%>"
+              src="./src/images/CloseIcon.png"
               alt="Boton de Cierre"
               class="popup__image-button-closed popup__button-closed"
             />
@@ -162,7 +163,7 @@
           <div class="popup__overlay"></div>
           <div class="popup__form">
             <img
-              src="<%=require('./images/CloseIcon.png')%>"
+              src="./src/images/CloseIcon.png"
               alt="Boton de Cierre"
               class="popup__button-closed"
             />
@@ -177,7 +178,7 @@
           <div class="popup__overlay"></div>
           <form class="popup__form popup__profile-form">
             <img
-              src="<%=require('./images/CloseIcon.png')%>"
+              src="./src/images/CloseIcon.png"
               alt="Boton de Cierre"
               class="popup__button-closed"
             />
@@ -203,5 +204,6 @@
         <p class="footer__copyright">&#169; 2024 Alrededor del Mundo</p>
       </footer>
     </div>
+    <script src="./src/pages/index.js" type="module"></script>
   </body>
 </html>

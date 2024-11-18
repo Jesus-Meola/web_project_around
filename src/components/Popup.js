@@ -1,4 +1,4 @@
-import { popupOverlay } from "../index.js";
+import { popupOverlay } from "../pages/index.js";
 
 export default class Popup {
   constructor(popupSelector) {
