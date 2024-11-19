@@ -65,10 +65,9 @@ const popupProfile = new PopupWithForm("#popup-profile", (inputs) => {
   });
 });
 
-let currentUserId = null;
-
 const popupCards = new PopupWithForm("#popup-card", (inputs) => {
   return api.saveCard(inputs.title, inputs.link).then((card) => {
+    const currentUserId = card._id;
     const newCard = new Card(
       card,
       currentUserId,
@@ -92,19 +91,17 @@ buttonAddCard.addEventListener("click", () => {
   popupCards.open();
 });
 
-let showCards = null;
-
 api.getUserInfo().then((result) => {
   user.setUserInfo(result.name, result.about, result.avatar);
-  currentUserId = result._id;
+  const currentUserId = result._id;
   api.getCards().then((cards) => {
-    showCards = new Section(
+    const showCards = new Section(
       {
         items: cards,
         renderer: (item) => {
           const card = new Card(
             item,
-            result._id,
+            currentUserId,
             popupImage.open,
             api.likeCard,
             api.deleteLikeCard,

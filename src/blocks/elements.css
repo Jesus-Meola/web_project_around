@@ -90,7 +90,7 @@
 @media screen and (max-width: 590px) {
   .elements {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 282px;
     justify-content: center;
   }
 }
